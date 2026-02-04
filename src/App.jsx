@@ -19,6 +19,7 @@ function App() {
       width: 800,
       height: 600,
       zIndex: windows.length + 1,
+      isMinimized: false,
     };
     setWindows(prev => [...prev, newWindow]);
     setActiveWindowId(newWindow.id);
@@ -35,10 +36,12 @@ function App() {
 
   const activateWindow = windowId => {
     setActiveWindowId(windowId);
-    // Поднимаем окно наверх (увеличиваем z-index)
+    // Поднимаем окно наверх (увеличиваем z-index) и снимаем минимизацию
     setWindows(prev => {
       const maxZ = Math.max(...prev.map(w => w.zIndex), 0);
-      return prev.map(w => (w.id === windowId ? { ...w, zIndex: maxZ + 1 } : w));
+      return prev.map(w =>
+        w.id === windowId ? { ...w, zIndex: maxZ + 1, isMinimized: false } : w
+      );
     });
   };
 
@@ -82,16 +85,21 @@ function App() {
   };
 
   const minimizeWindow = windowId => {
-    // Пока просто закрываю
-    // TODO: сохранить в таскбаре, но не отображать на рабочем столе
-    closeWindow(windowId);
+    setWindows(prev =>
+      prev.map(w => (w.id === windowId ? { ...w, isMinimized: true } : w))
+    );
+    if (activeWindowId === windowId) {
+      setActiveWindowId(null);
+    }
   };
 
   return (
     <div className="app">
       <TaskBar windows={windows} activeWindowId={activeWindowId} onWindowClick={activateWindow} />
       <Desktop onOpenApp={openWindow}>
-        {windows.map(window => (
+        {windows
+          .filter(window => !window.isMinimized)
+          .map(window => (
           <Window
             key={window.id}
             id={window.id}
