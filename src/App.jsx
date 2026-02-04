@@ -85,9 +85,7 @@ function App() {
   };
 
   const minimizeWindow = windowId => {
-    setWindows(prev =>
-      prev.map(w => (w.id === windowId ? { ...w, isMinimized: true } : w))
-    );
+    setWindows(prev => prev.map(w => (w.id === windowId ? { ...w, isMinimized: true } : w)));
     if (activeWindowId === windowId) {
       setActiveWindowId(null);
     }
@@ -100,26 +98,26 @@ function App() {
         {windows
           .filter(window => !window.isMinimized)
           .map(window => (
-          <Window
-            key={window.id}
-            id={window.id}
-            appId={window.appId}
-            title={window.title}
-            x={window.x}
-            y={window.y}
-            width={window.width}
-            height={window.height}
-            zIndex={window.zIndex}
-            isMaximized={window.isMaximized}
-            isActive={activeWindowId === window.id}
-            onActivate={() => activateWindow(window.id)}
-            onClose={() => closeWindow(window.id)}
-            onMinimize={() => minimizeWindow(window.id)}
-            onPositionChange={(x, y) => updateWindowPosition(window.id, x, y)}
-            onMaximize={bounds => maximizeWindow(window.id, bounds)}
-            onRestore={() => restoreWindow(window.id)}
-          />
-        ))}
+            <Window
+              key={window.id}
+              id={window.id}
+              appId={window.appId}
+              title={window.title}
+              x={window.x}
+              y={window.y}
+              width={window.width}
+              height={window.height}
+              zIndex={window.zIndex}
+              isMaximized={window.isMaximized}
+              isActive={activeWindowId === window.id}
+              onActivate={() => activateWindow(window.id)}
+              onClose={() => closeWindow(window.id)}
+              onMinimize={() => minimizeWindow(window.id)}
+              onPositionChange={(x, y) => updateWindowPosition(window.id, x, y)}
+              onMaximize={bounds => maximizeWindow(window.id, bounds)}
+              onRestore={() => restoreWindow(window.id)}
+            />
+          ))}
       </Desktop>
     </div>
   );
