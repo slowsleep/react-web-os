@@ -1,0 +1,22 @@
+#root {
+  height: 100vh;
+  background: center no-repeat url('./assets/wallpapers/abs-wp-00.jpg');
+  background-size: cover;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+}
+
+.app .taskbar {
+  flex-shrink: 0;
+}
+
+.app .desktop {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
