@@ -1,0 +1,17 @@
+.notes-app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-app__textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+}
