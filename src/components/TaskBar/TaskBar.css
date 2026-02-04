@@ -1,0 +1,53 @@
+.taskbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0.25em 1em;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+.taskbar-left,
+.taskbar-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.taskbar-right {
+  gap: 1em;
+  justify-content: end;
+}
+
+.taskbar-start {
+  width: 1em;
+}
+
+.taskbar-openapps {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  padding-left: 1em;
+}
+
+.taskbar-openapps__item {
+  padding: 0.25em 0.75em;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.taskbar-openapps__item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-openapps__item--active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+}
+
+.taskbar-time {
+  font-variant-numeric: tabular-nums;
+}
