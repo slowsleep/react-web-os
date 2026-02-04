@@ -58,3 +58,7 @@
   height: 100%;
   border: none;
 }
+
+.browser-app__info {
+  cursor: help;
+}
