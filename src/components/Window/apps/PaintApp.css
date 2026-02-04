@@ -1,0 +1,50 @@
+.paint-app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.paint-app__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.paint-app__color-input {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.paint-app__brush-size {
+  width: 100px;
+}
+
+.paint-app__clear-button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.paint-app__canvas-container {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.paint-app__canvas {
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: crosshair;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
